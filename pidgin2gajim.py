@@ -122,7 +122,10 @@ if __name__ == "__main__":
                 fp.append('')
             fp[1] = fp[1].split('/')[0]
             fp[2] = 'xmpp'
-            gajim_fps[fp[1]] += '\t'.join(fp) + '\n'
+            try:
+                gajim_fps[fp[1]] += '\t'.join(fp) + '\n'
+            except:
+                continue
 
     for account in keys:
         serialized_private_key = keys[account]['dsakey'].serializePrivateKey()
